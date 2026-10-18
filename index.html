@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101828">
+  <meta name="description" content="CabGo cab booking prototype for a college project.">
+  <title>CabGo — Ride Booking Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CabGo home"><span class="brand-mark">C</span> cabgo<span class="brand-dot">.</span></a>
+    <nav><a href="#book">Book a ride</a><a href="#how-it-works">How it works</a><a href="#history">My rides</a></nav>
+    <span class="prototype-tag"><span></span> Prototype</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR CITY. YOUR RIDE.</p>
+        <h1>Where to<br><span>next?</span></h1>
+        <p class="hero-subtitle">Book a ride in a few simple steps. Choose your cab, see the estimated fare, and confirm your trip.</p>
+        <div class="hero-points"><span>✓ Upfront fare estimate</span><span>✓ Multiple ride options</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a city taxi">
+        <div class="sun"></div><div class="skyline skyline-back"></div><div class="skyline skyline-front"></div>
+        <div class="road"></div>
+        <div class="car">
+          <div class="car-top"></div><div class="car-window window-one"></div><div class="car-window window-two"></div>
+          <div class="car-body"><span class="car-logo">cabgo</span><span class="headlight"></span></div>
+          <div class="wheel wheel-left"></div><div class="wheel wheel-right"></div>
+        </div>
+        <div class="art-label"><span class="pin">↗</span><div><b>Your ride is waiting</b><small>Tap. Book. Go.</small></div></div>
+      </div>
+    </section>
+
+    <section class="booking-layout" id="book">
+      <div class="booking-card">
+        <div class="section-heading"><div><p class="eyebrow">PLAN YOUR TRIP</p><h2>Book your ride</h2></div><span class="step-count">01 <i>/ 03</i></span></div>
+        <form id="bookingForm">
+          <div class="location-fields">
+            <label class="location-field"><span class="field-icon pickup-icon">●</span><span class="field-content"><span>Pickup location</span><input id="pickup" name="pickup" placeholder="e.g. Railway station" required maxlength="100"></span><button type="button" class="clear-field" data-clear="pickup" aria-label="Clear pickup">×</button></label>
+            <div class="route-line"></div>
+            <label class="location-field"><span class="field-icon drop-icon">◆</span><span class="field-content"><span>Drop-off location</span><input id="dropoff" name="dropoff" placeholder="e.g. City centre" required maxlength="100"></span><button type="button" class="clear-field" data-clear="dropoff" aria-label="Clear destination">×</button></label>
+          </div>
+          <div class="distance-control"><div class="distance-label"><label for="distance">Estimated trip distance</label><strong><span id="distanceValue">8</span> km</strong></div><input id="distance" type="range" min="1" max="40" value="8"><div class="range-labels"><span>1 km</span><span>40 km</span></div></div>
+          <div class="ride-heading"><div><h3>Choose your ride</h3><p>Select a vehicle that fits your trip.</p></div><span class="step-count">02 <i>/ 03</i></span></div>
+          <div class="ride-options" id="rideOptions">
+            <button class="ride-option" type="button" data-ride="bike" aria-pressed="false"><span class="ride-emoji">🏍️</span><span class="ride-name">Bike</span><span class="ride-detail">1 person</span><strong class="ride-price" id="price-bike">₹—</strong><span class="ride-eta">Fast & easy</span></button>
+            <button class="ride-option" type="button" data-ride="auto" aria-pressed="false"><span class="ride-emoji">🛺</span><span class="ride-name">Auto</span><span class="ride-detail">1–3 people</span><strong class="ride-price" id="price-auto">₹—</strong><span class="ride-eta">Everyday ride</span></button>
+            <button class="ride-option selected" type="button" data-ride="mini" aria-pressed="true"><span class="ride-emoji">🚕</span><span class="ride-name">Mini</span><span class="ride-detail">1–4 people</span><strong class="ride-price" id="price-mini">₹—</strong><span class="ride-eta">Popular choice</span></button>
+            <button class="ride-option" type="button" data-ride="sedan" aria-pressed="false"><span class="ride-emoji">🚘</span><span class="ride-name">Sedan</span><span class="ride-detail">1–4 people</span><strong class="ride-price" id="price-sedan">₹—</strong><span class="ride-eta">Extra comfort</span></button>
+            <button class="ride-option" type="button" data-ride="suv" aria-pressed="false"><span class="ride-emoji">🚙</span><span class="ride-name">SUV</span><span class="ride-detail">1–6 people</span><strong class="ride-price" id="price-suv">₹—</strong><span class="ride-eta">More space</span></button>
+          </div>
+          <div class="trip-summary"><div class="summary-icon">↗</div><div class="summary-copy"><b id="summaryRide">Mini ride selected</b><span id="summaryRoute">Enter your locations to plan your route</span></div><div class="summary-fare"><span>Estimated fare</span><strong id="selectedFare">₹—</strong></div></div>
+          <button class="primary-button" type="submit">Confirm booking <span>→</span></button>
+          <p class="fine-print">Demo only: no real cab, driver, payment, or live map is connected.</p>
+        </form>
+      </div>
+
+      <aside class="side-column">
+        <div class="trust-card"><div class="trust-icon">✦</div><p class="eyebrow">A BETTER WAY TO MOVE</p><h3>Your ride,<br>your way.</h3><p>Compare vehicle types and estimated prices before you book.</p><div class="trust-divider"></div><div class="trust-stat"><span>5</span><div><b>Ride choices</b><small>From bikes to SUVs</small></div></div><div class="trust-stat"><span>₹</span><div><b>Clear estimates</b><small>See fares before confirming</small></div></div></div>
+        <div class="how-card" id="how-it-works"><p class="eyebrow">HOW IT WORKS</p><div class="how-step"><span>1</span><div><b>Set your locations</b><small>Enter where you're going.</small></div></div><div class="how-step"><span>2</span><div><b>Pick your cab</b><small>Compare options and fares.</small></div></div><div class="how-step"><span>3</span><div><b>Confirm the ride</b><small>Save your demo booking.</small></div></div></div>
+      </aside>
+    </section>
+
+    <section class="history-section" id="history">
+      <div class="history-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>Recent rides</h2><p>Your demo bookings are saved in this browser.</p></div><button id="clearHistory" class="text-button" type="button">Clear history</button></div>
+      <div id="historyList" class="history-list"><div class="empty-state"><span>↗</span><b>No rides yet</b><p>Your confirmed demo bookings will show up here.</p></div></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">C</span> cabgo<span class="brand-dot">.</span></a><span>College project prototype · Built with HTML, CSS & JavaScript</span><a href="#book">Back to booking ↑</a></footer>
+
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-card"><button class="modal-close" id="closeModal" aria-label="Close">×</button><div class="success-mark">✓</div><p class="eyebrow">BOOKING CONFIRMED</p><h2 id="modalTitle">Your demo ride is booked!</h2><p class="modal-description">This is a prototype confirmation. No real driver has been requested.</p><div id="modalDetails" class="modal-details"></div><button id="doneButton" class="primary-button" type="button">Done <span>→</span></button></div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
